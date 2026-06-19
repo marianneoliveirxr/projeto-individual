@@ -63,7 +63,7 @@
               <input id="ipt_meta" type="number" placeholder="Ex: 50kg" />
               <p id="erroMeta" class="erro"></p>
             </div>
-            
+
             <button class="botao" onclick="criarPlano()">CRIAR PLANO</button>
           </div>
         </div>
@@ -71,3 +71,105 @@
     </div>
   </body>
 </html>
+<script>
+let perfilId = 0;
+
+  function limparFormulario() {
+    ipt_peso.value = "";
+    ipt_altura.value = "";
+    objetivo.value = "";
+    tempo.value = "";
+    sexo.value = "";
+  }
+
+  function criarPlano() {
+    erroPeso.innerHTML = "";
+    erroAltura.innerHTML = "";
+    erroObjetivo.innerHTML = "";
+    erroTempo.innerHTML = "";
+    erroSexo.innerHTML = "";
+    erroMeta.innerHTML = "";
+
+    let valido = true;
+
+    let pesoVar = Number(ipt_peso.value);
+    let alturaVar = Number(ipt_altura.value);
+    let metaVar = Number(ipt_meta.value);
+
+    let selectObjetivo = document.getElementById("objetivo");
+    let objetivoVar = selectObjetivo.value;
+
+    let selectTempo = document.getElementById("tempo");
+    let tempoVar = selectTempo.value;
+
+    let selectSexo = document.getElementById("sexo");
+    let sexoVar = selectSexo.value;
+
+    if (pesoVar == "") {
+      erroPeso.innerHTML = "Informe um valor";
+      valido = false;
+    } else if (pesoVar <= 0 || pesoVar < 40 || pesoVar > 150) {
+      erroPeso.innerHTML = "Informe um peso válido";
+      valido = false;
+    }
+
+    if (alturaVar == "") {
+      erroAltura.innerHTML = "Informe um valor";
+      valido = false;
+    } else if (alturaVar < 140 || alturaVar > 210) {
+      erroAltura.innerHTML = "Informe uma altura válida";
+      valido = false;
+    }
+
+    if (objetivoVar == "") {
+      erroObjetivo.innerHTML = "Selecione uma opção";
+      valido = false;
+    }
+
+    if (tempoVar == "") {
+      erroTempo.innerHTML = "Selecione uma opção";
+      valido = false;
+    }
+
+    if (sexoVar == "") {
+      erroSexo.innerHTML = "Selecione uma opção";
+      valido = false;
+    }
+
+    if (metaVar == "") {
+      erroMeta.innerHTML = "Informe um valor";
+      valido = false;
+    } else if (metaVar <= 0 || metaVar < 40 || metaVar > 150) {
+      erroMeta.innerHTML = "Informe um peso válido";
+      valido = false;
+    }
+
+    if (valido) {
+      if (objetivoVar == "emagrecer" && tempoVar == "iniciante" && sexoVar == "masculino") {
+        perfilId = 1;
+      } else if (objetivoVar == "emagrecer" && tempoVar == "intermediario" && sexoVar == "masculino") {
+        perfilId = 2;
+      } else if (objetivoVar == "emagrecer" && tempoVar == "avancado" && sexoVar == "masculino") {
+        perfilId = 3;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "iniciante" && sexoVar == "masculino") {
+        perfilId = 4;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "intermediario" && sexoVar == "masculino") {
+        perfilId = 5;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "avancado" && sexoVar == "masculino") {
+        perfilId = 6;
+      } else if (objetivoVar == "emagrecer" && tempoVar == "iniciante" && sexoVar == "feminino") {
+        perfilId = 7;
+      } else if (objetivoVar == "emagrecer" && tempoVar == "intermediario" && sexoVar == "feminino") {
+        perfilId = 8;
+      } else if (objetivoVar == "emagrecer" && tempoVar == "avancado" && sexoVar == "feminino") {
+        perfilId = 9;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "iniciante" && sexoVar == "feminino") {
+        perfilId = 10;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "intermediario" && sexoVar == "feminino") {
+        perfilId = 11;
+      } else if (objetivoVar == "hipertrofia" && tempoVar == "avancado" && sexoVar == "feminino") {
+        perfilId = 12;
+      }
+    }
+}
+</script>
