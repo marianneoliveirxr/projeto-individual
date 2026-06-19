@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <div class="header">
     <div class="container">
@@ -66,14 +66,10 @@
           </div>
           <div class="campo">
             <span>Confirmação da Senha</span>
-            <input id="ipt_confirmacao" type="password" placeholder="******" />
+            <input id="ipt_confirmar" type="password" placeholder="******" />
             <div id="erroConfirmar" class="erro"></div>
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <div id="mensagem_aguardar"></div>
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
 
         <div id="div_erros_login"></div>
@@ -93,91 +89,91 @@
 </html>
 
 <script>
-
-  function cadastrar() {
-    aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = ipt_nome.value;
-    var emailVar = ipt_email.value;
-    var dataVar = ipt_data.value;
-    var senhaVar = ipt_senha.value;
-    var confirmacaoSenhaVar = ipt_confirmacao.value;
-
-    erroNome.innerHTML = "";
-    erroData.innerHTML = "";
-    erroEmail.innerHTML = "";
-    erroSenha.innerHTML = "";
-    erroConfirmar.innerHTML = "";
-
-
-    let valido = false;
-
-    let partesData = dtNasc.split("-");
-    let ano = partesData[0];
-    let mes = partesData[1];
-    let dia = partesData[2];
-
-    //Se todos os campos estiverem em branco
-    if(
-      nomeVar == "" &&
-      emailVar == "" &&
-      dataVar == "" &&
-      senhaVar == "" &&
-      confirmacaoSenhaVar == ""
-    ){
-      erroConfirmar.innerHTML =
-      "Preencha todos os campos";
-
-      finalizarAguardar();
+  function limparFormulario(){
+        ipt_nome.innerHTML = "";
+        ipt_data.innerHTML = "";
+        ipt_email.innerHTML = "";
+        ipt_senha.innerHTML = "";
+        ipt_confirmar.innerHTML = "";
     }
-    //Nome com mais de 3 caracteres
-   else if(nomeVar.length < 3){
-      erroNome.innerHTML =
-      "Nome inválido";
+    function cadastrar() {
 
-      finalizarAguardar();
-    }
-    //Validação de email
-    else if(!emailVar.includes("@") || !emailVar.includes(".com")){
-      //divide o email pelo @ e valida a primeira e a segunda parte
-      let partes = emailVar.split("@");
+        var nomeVar = ipt_nome.value;
+        var dataVar = ipt_data.value;
+        var emailVar = ipt_email.value.trim();
+        var senhaVar = ipt_senha.value;
+        var confirmarVar = ipt_confirmar.value;
 
-      if(partes[0].length < 3){
-        erroEmail.innerHTML =
-        "Poucos caracteres antes do @";
-      }
+        let valido = true;
 
-      if(partes[1].length < 4){
-        erroEmail.innerHTML =
-        "Domínio inválido";
+        erroNome.innerHTML = "";
+        erroData.innerHTML = "";
+        erroEmail.innerHTML = "";
+        erroSenha.innerHTML = "";
+        erroConfirmar.innerHTML = "";
 
-        finalizarAguardar();
-      }
-    }
-    else if(dia > 31 || mes > 12 || ano > 2012){
-      erroData.innerHTML = "É necessário possuir mais de 14 anos"
-    }
-    else if(senhaVar.length < 6){
-      erroSenha.innerHTML = "A senha deve conter mais de 6 caracteres";
-    }
-    else if(
-      !senhaVar.includes("!") ||
-      !senhaVar.includes("@") ||
-      !senhaVar.includes("#") ||
-      !senhaVar.includes("$")){
-        erroSenha.innerHTML = "A senha precisa conter um caracter especial (! # $ @)";
-    }
-    else if(senhaVar != confirmacaoSenhaVar){
-      erroConfirmar.innerHTML = "Senhas não coincidem";
-    }
-    else {
-      valido = true;
-      setInterval(sumirMensagem, 5000);
-    }
+        if (nomeVar.length < 3) {
+            erroNome.innerText = "Digite um nome válido";
+            valido = false;
+        }
 
-    if(valido){
+
+        if (!emailVar.includes("@") || !emailVar.includes(".com")) {
+            erroEmail.innerText = "Email inválido";
+            valido = false;
+        } else {
+            let partes = emailVar.split("@");
+
+            if (partes[0].length < 3) {
+                erroEmail.innerHTML = "Poucos caracteres antes do @";
+                valido = false;
+            }
+
+            if (partes[1].length < 4) {
+                erroEmail.innerHTML = "Domínio inválido";
+                valido = false;
+            }
+        }
+
+        if (dataVar == "") {
+            erroData.innerText = "Informe a data";
+            valido = false;
+        } else {
+            let partes = dataVar.split("-");
+            let ano = partes[0];
+            let mes = partes[1];
+            let dia = partes[2];
+
+            if (dia > 31 || mes > 12 || ano > 2026) {
+                erroData.innerHTML = "Data inválida";
+                valido = false;
+            }
+            else if (dia > 31 || mes > 12 || ano > 2012) {
+                erroData.innerHTML = "Você precisa ter mais de 14 anos";
+                valido = false;
+            }
+            else if (dia > 29 && mes == 2) {
+                erroData.innerHTML = "Data inválida";
+                valido = false;
+            }
+
+            if (senhaVar.length < 4) {
+                erroSenha.innerHTML = "Senha muito curta";
+                valido = false;
+            }
+
+
+            else if (!senhaVar.includes("!") && !senhaVar.includes("@") && !senhaVar.includes("#") && !senhaVar.includes("$")) {
+                erroSenha.innerHTML = "Use um caractere especial (! @ # $)";
+                valido = false;
+            }
+
+            else if (senhaVar != confirmarVar) {
+                erroConfirmar.innerHTML = "Senhas não coincidem";
+                valido = false;
+            }
+
+            if (valido) {
                 //Recupere o valor da nova input pelo nome do id
                 // Agora vá para o método fetch logo abaixo
 
@@ -214,10 +210,10 @@
 
                 // return false;
             }
+        }
     }
 
-
-   function login(emailVar, senhaVar){
+    function login(emailVar, senhaVar){
     console.log("FORM LOGIN: ", emailVar);
       console.log("FORM SENHA: ", senhaVar);
 
