@@ -1,11 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitMatch | Criar Plano</title>
+  </head>
+  <body>
+    <div class="plano">
+      <div class="container">
+        <div class="card card-plano">
+          <h2>Criar plano</h2>
+
+          <div class="formulario">
+
+            <div class="campo">
+              <span>Peso (Kg)</span>
+              <input id="ipt_peso" type="number" placeholder="70 kg" />
+              <div id="erroPeso"></div>
+            </div>
+
+            <div class="campo">
+              <span>Altura (Cm)</span>
+              <input id="ipt_altura" type="number" placeholder="160cm" />
+              <div id="erroAltura"></div>
+            </div>
+
+            <div class="campo">
+              <p class="titulo-campo">Qual o seu objetivo principal?</p>
+              <select class="option" id="objetivo">
+                <option value=""></option>
+                <option value="emagrecer">Emagrecer</option>
+                <option value="hipertrofia">Ganhar Massa Muscular</option>
+              </select>
+              <p id="erroObjetivo" class="erro"></p>
+            </div>
+
+            <div class="campo">
+              <p class="titulo-campo">
+                Há quanto tempo você realiza exercício físico?
+              </p>
+              <select class="option" id="tempo">
+                <option value=""></option>
+                <option value="iniciante">Menos de 6 meses</option>
+                <option value="intermediario">Entre 6 meses e 2 anos</option>
+                <option value="avancado">Mais de 2 anos</option>
+              </select>
+              <p id="erroTempo" class="erro"></p>
+            </div>
+
+            <div class="campo">
+              <p class="titulo-campo">Qual o seu sexo biológico?</p>
+              <select class="option" id="sexo">
+                <option value=""></option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+              </select>
+              <p id="erroSexo" class="erro"></p>
+            </div>
+
+            <div class="campo">
+              <label for="meta">Qual a sua meta de peso?</label>
+              <input id="ipt_meta" type="number" placeholder="Ex: 50kg" />
+              <p id="erroMeta" class="erro"></p>
+            </div>
+            
+            <button class="botao" onclick="criarPlano()">CRIAR PLANO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
