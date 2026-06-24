@@ -12,49 +12,100 @@ body {
     color: #fff;
 }
 
-.header{
-    background-color: #020C1B;
+.login{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar{
+.container{
+   background-color: #071a2f;
+   width: 450px;
+   padding: 40px;
+   border-radius: 40px;
+}
+
+.card-login{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #3BB4FF;
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 290px;
+    margin-top: 20px;
 }
 
-.logosite{
-    margin-left: 20px;
-}
-.logosite img{
-    width: 160px;
-}
-
-.links-navbar{
-    list-style: none;
+.logo{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-right: 20px;
 }
 
-.links-navbar a{
-    text-decoration: none;
-    color: #cbd5e1;
-    font-size: 14px;
+.logo img{
+    width: 200px;
+    margin-right: 18px;
 }
 
-li{
-    color: #cbd5e1;
-    font-size: 14px;
+.logo p{
+    font-size: 12px;
+    color: #8aa0b8;
 }
 
-.links-navbar .botao-cadastro {
-    background-color: #38bdf8;
-    color: #020C1B;
-    padding: 10px 15px;
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.campo{
+    width: 100%;
+    
+}
+
+.campo span{
+    font-size: 15px;
+    color: #8aa0b8;
+    display: block;
+}
+
+.campo input{
+    width: 100%;
+    padding: 12px;
     border-radius: 10px;
+    border: 1px solid #1e3a5f;
+    background: #020C1B;
+    color: #fff;
+}
+
+.erro{
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.botao{
+    display: flex;
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #38bdf8;
+    color: #000814;
+    font-weight: 800;
+    margin-top: 10px;
+    border: none;
     cursor: pointer;
-    font-weight: bold;
+}
+
+.rodape-formulario{
+    text-align: center;
+    font-size: 14px;
+}
+
+.rodape-formulario a{
+    text-decoration: none;
+    color: #38bdf8;
 }
