@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FitMatch | Criar Plano</title>
 
-    <link rel="stylesheet" href="css/plano.css">
+    <link rel="stylesheet" href="css/formulario.css">
   </head>
   <body>
-    <div class="plano">
+    <div class="login">
       <div class="container">
-        <div class="card card-plano">
-          <h2>Criar plano</h2>
+        <div class="card">
+          <h2>Vamos criar seu plano!</h2>
 
           <div class="formulario">
 
             <div class="campo">
               <span>Peso (Kg)</span>
               <input id="ipt_peso" type="number" placeholder="70 kg" />
-              <div id="erroPeso"></div>
+              <div id="erroPeso" class="erro"></div>
             </div>
 
             <div class="campo">
               <span>Altura (Cm)</span>
               <input id="ipt_altura" type="number" placeholder="160cm" />
-              <div id="erroAltura"></div>
+              <div id="erroAltura" class="erro"></div>
             </div>
 
             <div class="campo">
-              <p class="titulo-campo">Qual o seu objetivo principal?</p>
+              <span>Qual o seu objetivo principal?</span>
               <select class="option" id="objetivo">
                 <option value=""></option>
                 <option value="emagrecer">Emagrecer</option>
@@ -38,9 +38,9 @@
             </div>
 
             <div class="campo">
-              <p class="titulo-campo">
+              <span>
                 Há quanto tempo você realiza exercício físico?
-              </p>
+              </span>
               <select class="option" id="tempo">
                 <option value=""></option>
                 <option value="iniciante">Menos de 6 meses</option>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="campo">
-              <p class="titulo-campo">Qual o seu sexo biológico?</p>
+              <span>Qual o seu sexo biológico?</span>
               <select class="option" id="sexo">
                 <option value=""></option>
                 <option value="feminino">Feminino</option>
@@ -61,7 +61,7 @@
             </div>
 
             <div class="campo">
-              <label for="meta">Qual a sua meta de peso?</label>
+              <span>Qual a sua meta de peso?</span>
               <input id="ipt_meta" type="number" placeholder="Ex: 50kg" />
               <p id="erroMeta" class="erro"></p>
             </div>
