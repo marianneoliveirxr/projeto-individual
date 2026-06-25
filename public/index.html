@@ -36,152 +36,180 @@
       </div>
     </div>
 
-    <section class="section1">
-      <div class="container-texto">
-        <h1>
-          SUA FORMA <br />
-          IDEAL A UM <br />
-          <span>CÁLCULO</span> <br />
-          DE DISTÂNCIA
-        </h1>
-        <div class="botoes">
-          <a href="login.html">
-            <button class="botao-primario">COMEÇAR AGORA</button>
-          </a>
-          <a href="#imc">
-            <button class="botao-secundario">CALCULAR IMC</button>
-          </a>
-        </div>
-      </div>
-
-      <div class="imagem-principal">
-        <img src="assets/imgs/banner.png" alt="Mulher suando após o treino">
-      </div>
-    </section>
-
-    <div class="section2">
-      <div class="container">
-        <div class="titulo">
-          <h2>
-            POR QUE UM PROJETO <br />
-            <span>SOBRE ACADEMIA?</span>
-          </h2>
-        </div>
-        <div class="content">
-          <div class="imagem-sectio2">
-            <img
-            src="assets/imgs/dinoezanca.jpg"
-            alt="Gabriel Zancanelli, Marianne e Ramon Dino"
-          />
+    <div class="conteudo">
+      <div class="section1">
+        <div class="container-texto">
+          <h1>
+            SUA FORMA <br />
+            IDEAL A UM <br />
+            <span>CÁLCULO</span> <br />
+            DE DISTÂNCIA
+          </h1>
+          <div class="botoes">
+            <a href="login.html">
+              <button class="botao-primario">COMEÇAR AGORA</button>
+            </a>
+            <a href="#imc">
+              <button class="botao-secundario">CALCULAR IMC</button>
+            </a>
           </div>
-          <div class="texto-section2"> 
-            <p>
-            Tudo começou durante a pandemia, com treinos em casa e muita
-            dedicação. Com o passar dos anos, a atividade física se tornou uma
-            das minhas maiores paixões. Entrar nesse universo me trouxe minha
-            maior inspirações do mundo fitness: o fisiculturista Ramon Dino.
-          </p>
+        </div>
+      </div>
+
+      <div class="section2">
+        <div class="container">
+          <div class="titulo">
+            <h2>
+              POR QUE UM PROJETO <br />
+              <span>SOBRE ACADEMIA?</span>
+            </h2>
+          </div>
+          <div class="content">
+            <div class="imagem-sectio2">
+              <img
+                src="assets/imgs/dinoezanca.jpg"
+                alt="Gabriel Zancanelli, Marianne e Ramon Dino"
+              />
+            </div>
+            <div class="texto-section2">
+              <p>
+                Tudo começou durante a pandemia, com treinos em casa e muita
+                dedicação. Com o passar dos anos, a atividade física se tornou
+                uma das minhas maiores paixões. Entrar nesse universo me trouxe
+                minha maior inspirações do mundo fitness: o fisiculturista Ramon
+                Dino.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section3">
+        <div class="container">
+          <div class="boxes">
+            <div class="box">
+              <img src="assets/imgs/maca.png" />
+              <h4>índice de Massa Corporal</h4>
+              <p>
+                A partir do cálculo do IMC, você terá uma visão clara do seu
+                status nutricional.
+              </p>
+            </div>
+            <div class="box">
+              <img src="assets/imgs/halter-logo.png" />
+              <h4>Treinos Personalizados</h4>
+              <p>
+                O FitMatch oferece treinos de acordo com o seu perfil, seja para
+                hipertrofia ou definição.
+              </p>
+            </div>
+            <div class="box">
+              <img src="assets/imgs/balanca.png" />
+              <h4>Acompanhamento</h4>
+              <p>
+                Monitore seu progresso acompanhando seu peso e índice de Massa
+                Corporal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section4" id="imc">
+        <div class="container">
+          <div class="texto-topo">
+            <h2>CALCULE SEU <span>IMC</span></h2>
+            <p class="descricao">
+              O Índice de Massa Corporal é o primeiro passo para entender onde
+              você está e traçar o caminho até onde quer chegar.
+            </p>
+          </div>
+
+          <div class="caixa-imc">
+            <!-- Entrada de dados no cálculo do IMC -->
+            <div class="entradas">
+              <div class="grupo-entrada">
+                <div class="rotulo">
+                  <span>Altura</span>
+                  <div>
+                    <input
+                      type="number"
+                      id="alturaValor"
+                      value="170"
+                      min="140"
+                      max="210"
+                      oninput="atualizarAlturaInput()"
+                    />
+
+                    <span>cm</span>
+                  </div>
+                </div>
+
+                <input
+                  type="range"
+                  id="alturaRange"
+                  min="140"
+                  max="210"
+                  value="170"
+                  oninput="atualizarAlturaRange()"
+                />
+
+                <div class="rotulos-range">
+                  <span>140 cm</span>
+                  <span>210 cm</span>
+                </div>
+              </div>
+
+              <div class="grupo-entrada">
+                <div class="rotulo">
+                  <span>Peso</span>
+                  <div>
+                    <input
+                      type="number"
+                      id="pesoValor"
+                      value="70"
+                      min="40"
+                      max="150"
+                      oninput="atualizarPesoInput()"
+                    />
+                    <span>kg</span>
+                  </div>
+
+                  <input
+                    type="range"
+                    id="pesoRange"
+                    min="40"
+                    max="150"
+                    value="70"
+                    oninput="atualizarPesoRange()"
+                  />
+
+                  <div class="rotulos-range">
+                    <span>40 kg</span>
+                    <span>150 kg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aqui mostra o resultado do cálculo realizado -->
+            <div class="resultado" id="boxResultado">
+              <div class="imc-valor">
+                <p>SEU IMC</p>
+                <h1 id="imcNumero">--</h1>
+              </div>
+              <div class="imc-info">
+                <h3 id="imcTitulo"></h3>
+                <p id="imcDescricao">Preencha seus dados e clique no botão.</p>
+                <button onclick="calcularIMC()" class="botao-imc">
+                  CALCULAR IMC
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <section class="section3">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/maca.png" />
-            <h4>índice de Massa Corporal</h4>
-            <p>
-              A partir do cálculo do IMC, você terá uma visão clara do seu
-              status nutricional.
-            </p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/halter-logo.png" />
-            <h4>Treinos Personalizados</h4>
-            <p>
-              O FitMatch oferece treinos de acordo com o seu perfil, seja para
-              hipertrofia ou definição.
-            </p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/balanca.png" />
-            <h4>Acompanhamento</h4>
-            <p>
-              Monitore seu progresso acompanhando seu peso e índice de Massa
-              Corporal.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section4" id="imc">
-      <div class="container">
-        <div class="texto-topo">
-          <h2>CALCULE SEU <span>IMC</span></h2>
-          <p class="descricao">
-            O Índice de Massa Corporal é o primeiro passo para entender onde você está e traçar o caminho até onde quer chegar.
-          </p>
-        </div>
-
-        <div class="caixa-imc">
-
-          <!-- Entrada de dados no cálculo do IMC -->
-          <div class="entradas">
-            <div class="grupo-entrada">
-              <div class="rotulo">
-                <span>Altura</span>
-                <div>
-                  <input type="number" id="alturaValor" value="170" min="140" max="210" oninput="atualizarAlturaInput()">
-                  
-                  <span>cm</span>
-                </div>
-              </div>
-
-              <input type="range" id="alturaRange" min="140" max="210" value="170" oninput="atualizarAlturaRange()">
-
-              <div class="rotulos-range">
-                <span>140 cm</span>
-                <span>210 cm</span>
-              </div>
-            </div>
-
-            <div class="grupo-entrada">
-              <div class="rotulo">
-                <span>Peso</span>
-                <div>
-                  <input type="number" id="pesoValor" value="70" min="40" max="150" oninput="atualizarPesoInput()">
-                  <span>kg</span>
-                </div>
-
-                <input type="range" id="pesoRange" min="40" max="150" value="70"
-                oninput="atualizarPesoRange()">
-
-                <div class="rotulos-range">
-                  <span>40 kg</span>
-                  <span>150 kg</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Aqui mostra o resultado do cálculo realizado -->
-           <div class="resultado" id="boxResultado">
-            <div class="imc-valor">
-              <p>SEU IMC</p>
-              <h1 id="imcNumero">--</h1>
-            </div>
-            <div class="imc-info">
-              <h3 id="imcTitulo"></h3>
-              <p id="imcDescricao">Preencha seus dados e clique no botão.</p>
-              <button onclick="calcularIMC()" class="botao-imc">CALCULAR IMC</button>
-            </div>
-           </div>
-        </div>
-      </div>
-    </section>
 
     <div class="footer">
       <div class="container">
@@ -192,69 +220,69 @@
 </html>
 <script>
   function atualizarAlturaRange() {
-        alturaValor.value = alturaRange.value;
+    alturaValor.value = alturaRange.value;
+  }
+
+  function atualizarPesoRange() {
+    pesoValor.value = pesoRange.value;
+  }
+
+  function atualizarAlturaInput() {
+    alturaRange.value = alturaValor.value;
+  }
+
+  function atualizarPesoInput() {
+    pesoRange.value = pesoValor.value;
+  }
+
+  function calcularIMC() {
+    boxResultado.style.display = "flex";
+
+    let alturaCm = Number(alturaValor.value);
+    let altura = alturaCm / 100;
+
+    let peso = Number(pesoValor.value);
+
+    let imc = (peso / (altura * altura)).toFixed(1);
+    console.log(imc);
+
+    imcNumero.innerText = imc;
+
+    imcNumero.style.color = "white";
+    imcTitulo.style.color = "white";
+
+    if (imc < 18.5) {
+      imcTitulo.innerText = "Abaixo do Peso";
+      imcDescricao.innerText =
+        "Foco em ganho de massa muscular e dieta hipercalórica supervisionada.";
+
+      imcNumero.style.color = "#3b82f6";
+      imcTitulo.style.color = "#3b82f6";
+      boxResultado.style.borderColor = "#3b82f6";
+    } else if (imc < 24.9) {
+      imcTitulo.innerText = "Peso Ideal";
+      imcDescricao.innerText =
+        "Ótimo! Mantenha com treinos de manutenção e boa alimentação.";
+
+      imcNumero.style.color = "#22c55e";
+      imcTitulo.style.color = "#22c55e";
+      boxResultado.style.borderColor = "#22c55e";
+    } else if (imc < 29.9) {
+      imcTitulo.innerText = "SobrePeso";
+      imcDescricao.innerText =
+        "Combine treino aeróbico com musculação e ajuste a dieta.";
+
+      imcNumero.style.color = "#facc15";
+      imcTitulo.style.color = "#facc15";
+      boxResultado.style.borderColor = "#facc15";
+    } else {
+      imcTitulo.innerText = "Obesidade";
+      imcDescricao.innerText =
+        "Procure acompanhamento profissional. Treino e dieta controlada são essenciais.";
+
+      imcNumero.style.color = "#ef4444";
+      imcTitulo.style.color = "#ef4444";
+      boxResultado.style.borderColor = "#ef4444";
     }
-
-    function atualizarPesoRange() {
-        pesoValor.value = pesoRange.value;
-    }
-
-    function atualizarAlturaInput(){
-        alturaRange.value = alturaValor.value;
-    }
-
-    function atualizarPesoInput() {
-        pesoRange.value = pesoValor.value;
-    }
-
-    function calcularIMC(){
-        boxResultado.style.display = "flex";
-
-        let alturaCm = Number(alturaValor.value);
-        let altura = alturaCm / 100;
-        
-        let peso = Number(pesoValor.value);
-
-        let imc = (peso / (altura * altura)).toFixed(1);
-        console.log(imc);
-
-        imcNumero.innerText = imc;
-
-        imcNumero.style.color = "white";
-        imcTitulo.style.color = "white";
-
-        if (imc < 18.5){
-            imcTitulo.innerText = "Abaixo do Peso";
-            imcDescricao.innerText = "Foco em ganho de massa muscular e dieta hipercalórica supervisionada.";
-
-            imcNumero.style.color = "#3b82f6";
-            imcTitulo.style.color = "#3b82f6";
-            boxResultado.style.borderColor = "#3b82f6";
-        }
-        else if (imc < 24.9){
-            imcTitulo.innerText = "Peso Ideal";
-            imcDescricao.innerText = "Ótimo! Mantenha com treinos de manutenção e boa alimentação.";
-
-            imcNumero.style.color = "#22c55e";
-            imcTitulo.style.color = "#22c55e";
-            boxResultado.style.borderColor = "#22c55e";
-        }
-        else if (imc < 29.9){
-            imcTitulo.innerText = "SobrePeso";
-            imcDescricao.innerText = "Combine treino aeróbico com musculação e ajuste a dieta."
-
-            imcNumero.style.color = "#facc15";
-            imcTitulo.style.color = "#facc15";
-            boxResultado.style.borderColor = "#facc15";
-        }
-        else{
-            imcTitulo.innerText = "Obesidade";
-            imcDescricao.innerText = "Procure acompanhamento profissional. Treino e dieta controlada são essenciais.";
-
-            imcNumero.style.color = "#ef4444";
-            imcTitulo.style.color = "#ef4444";
-            boxResultado.style.borderColor = "#ef4444";
-        }
-        
-    }
+  }
 </script>
