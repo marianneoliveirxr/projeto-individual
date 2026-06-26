@@ -371,3 +371,45 @@ input[type="range"] {
     font-size: 17px;
     margin-bottom: 10px;
 }
+
+footer {
+    background-color: #0b1220; 
+    border-top: 1px solid #38bdf8; 
+    font-size: 15px; 
+    padding: 25px;
+}
+
+.conteudo-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-footer img { 
+    width: 120px; 
+    
+} 
+
+.texto-footer { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    color: #ffff; 
+    margin-left: 16%; 
+} 
+
+.links-footer { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: right; 
+    gap: 10px;
+    margin-left: 10%;
+}
+
+.links-footer a { 
+    text-decoration: none; 
+    color: #ffffff; 
+} 
