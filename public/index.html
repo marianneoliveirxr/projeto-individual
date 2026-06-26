@@ -58,7 +58,7 @@
 
       <div class="section2">
 
-          <div class="section2-titulo">
+          <div class="titulo">
             <h2>
               POR QUE UM PROJETO <br />
               <span>SOBRE ACADEMIA?</span>
@@ -88,131 +88,129 @@
       </div>
 
       <div class="section3">
-        <div class="container">
+        <div class="titulo">
+          <h2>TUDO QUE VOCÊ PRECISA <br>
+            <span>PARA TRANSFORMAR O SEU CORPO</span>
+          </h2>
+        </div>
           <div class="boxes">
             <div class="box">
-              <img src="assets/imgs/maca.png" />
-              <h4>índice de Massa Corporal</h4>
+              <div class="box-conteudo">
+                <img src="assets/imgs/maca.png" />
+
+                <div class="box-texto">
+                  <h4>índice de Massa Corporal</h4>
               <p>
                 A partir do cálculo do IMC, você terá uma visão clara do seu
                 status nutricional.
               </p>
+                </div>
+              </div>
             </div>
             <div class="box">
-              <img src="assets/imgs/halter-logo.png" />
-              <h4>Treinos Personalizados</h4>
+              <div class="box-conteudo">
+                <img src="assets/imgs/halter-logo.png" />
+
+                <div class="box-texto">
+                  <h4>Treinos Personalizados</h4>
               <p>
                 O FitMatch oferece treinos de acordo com o seu perfil, seja para
                 hipertrofia ou definição.
               </p>
+                </div>
+              </div>
+              
             </div>
             <div class="box">
-              <img src="assets/imgs/balanca.png" />
-              <h4>Acompanhamento</h4>
+              <div class="box-conteudo">
+                <img src="assets/imgs/balanca.png" />
+
+                <div class="box-texto">
+                  <h4>Acompanhamento</h4>
               <p>
                 Monitore seu progresso acompanhando seu peso e índice de Massa
                 Corporal.
               </p>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
 
       <div class="section4" id="imc">
-        <div class="container">
-          <div class="texto-topo">
+    <div class="conteiner-imc">
+        <div class="topo">
             <h2>CALCULE SEU <span>IMC</span></h2>
             <p class="descricao">
-              O Índice de Massa Corporal é o primeiro passo para entender onde
-              você está e traçar o caminho até onde quer chegar.
+                O Índice de Massa Corporal é o primeiro passo para entender onde você está e traçar o caminho até onde quer chegar.
             </p>
-          </div>
-
-          <div class="caixa-imc">
-            <!-- Entrada de dados no cálculo do IMC -->
-            <div class="entradas">
-              <div class="grupo-entrada">
-                <div class="rotulo">
-                  <span>Altura</span>
-                  <div>
-                    <input
-                      type="number"
-                      id="alturaValor"
-                      value="170"
-                      min="140"
-                      max="210"
-                      oninput="atualizarAlturaInput()"
-                    />
-
-                    <span>cm</span>
-                  </div>
-                </div>
-
-                <input
-                  type="range"
-                  id="alturaRange"
-                  min="140"
-                  max="210"
-                  value="170"
-                  oninput="atualizarAlturaRange()"
-                />
-
-                <div class="rotulos-range">
-                  <span>140 cm</span>
-                  <span>210 cm</span>
-                </div>
-              </div>
-
-              <div class="grupo-entrada">
-                <div class="rotulo">
-                  <span>Peso</span>
-                  <div>
-                    <input
-                      type="number"
-                      id="pesoValor"
-                      value="70"
-                      min="40"
-                      max="150"
-                      oninput="atualizarPesoInput()"
-                    />
-                    <span>kg</span>
-                  </div>
-
-                  <input
-                    type="range"
-                    id="pesoRange"
-                    min="40"
-                    max="150"
-                    value="70"
-                    oninput="atualizarPesoRange()"
-                  />
-
-                  <div class="rotulos-range">
-                    <span>40 kg</span>
-                    <span>150 kg</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Aqui mostra o resultado do cálculo realizado -->
-            <div class="resultado" id="boxResultado">
-              <div class="imc-valor">
-                <p>SEU IMC</p>
-                <h1 id="imcNumero">--</h1>
-              </div>
-              <div class="imc-info">
-                <h3 id="imcTitulo"></h3>
-                <p id="imcDescricao">Preencha seus dados e clique no botão.</p>
-                <button onclick="calcularIMC()" class="botao-imc">
-                  CALCULAR IMC
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+
+    <div class="caixa-imc">
+        <div class="entradas">
+        <div class="grupo-entrada">
+            <div class="rotulo">
+                <span>Altura</span>
+                <div>
+                    <input id="alturaValor" type="number" value="170" min="140" max="210"
+                        oninput="atualizarAlturaInput()">
+                    
+                    <span>cm</span>
+                </div>
+            </div>
+
+            <input id="alturaRange" type="range" min="140" max="210" value="170"
+            oninput="atualizarAlturaRange()">
+
+            <div class="rotulos-range">
+                <span>140 cm</span>
+                <span>210 cm</span>
+            </div>
+        </div>
+
+        <div class="grupo-entrada">
+            <div class="rotulo">
+                <span>Peso</span>
+                <div>
+                    <input id="pesoValor" type="number" value="70" min="40" max="150"
+                        oninput="atualizarPesoInput()">
+                    <span>kg</span>
+                </div>
+            </div>
+
+            <input id="pesoRange" type="range" min="40" max="150" value="70"
+                oninput="atualizarPesoRange()">
+
+            <div class="rotulos-range">
+                <span>40 kg</span>
+                <span>150 kg</span>
+            </div>
+        </div>
+
     </div>
+
+    <div class="resultado" id="boxResultado">
+        <div class="imc-valor">
+            <p>SEU IMC</p>
+            <h1 id="imcNumero">--</h1>
+        </div>
+        <div class="imc-info">
+            <h3 id="imcTitulo"></h3>
+            <p id="imcDescricao">Preencha seus dados e clique no botão.</p>
+            <button onclick="calcularIMC()" class="botao-imc"> CALCULAR IMC</button>
+        </div>
+    </div>
+            <div class="chamada-acao">
+                <p>Quer um treino baseado no seu IMC?</p>
+                <a href="cadastro.html">
+                    <button class="botao-imc">CRIAR MEU PLANO</button>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+  </div>
 
     <div class="footer">
       <div class="container">
