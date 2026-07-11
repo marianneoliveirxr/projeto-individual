@@ -38,9 +38,66 @@
 
           <button onclick="atualizar()" class="botao">ATUALIZAR</button>
         </div>
-
-        
       </div>
     </div>
   </body>
 </html>
+<script>
+    function atualizar() {
+
+    let peso = Number(ipt_peso.value);
+    let altura = Number(ipt_altura.value);
+    let meta = Number(ipt_meta.value);
+
+    if (
+      peso == "" &&
+      altura == "" &&
+      meta == ""
+    ){
+      erroMeta.innerHTML = "Preencha todos os campos"
+    }
+    else if(peso > 150 || peso < 40){
+      erroPeso.innerHTML = "Informe um peso válido"
+    }
+    else if(altura > 210 || altura < 140){
+      erroAltura.innerHTML = "Informe uma altura válida"
+    }
+    else if(meta > 150 || meta < 40){
+      erroMeta.innerHTML = "Informe uma meta de peso válida"
+    }
+    else {
+      fetch("/dash/atualizarPeso", {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            id_usuario: sessionStorage.ID_USUARIO,
+            peso: peso,
+            altura: altura,
+            meta: meta
+        })
+    })
+
+    .then(function(resposta) {
+
+        if (resposta.ok) {
+
+            alert("Atualização realizada com sucesso!");
+
+            window.location = "index.html";
+        }
+        else {
+            throw "Erro ao atualizar";
+        }
+
+    })
+
+    .catch(function(erro) {
+        console.log(erro);
+    });
+    }
+}
+</script>
