@@ -363,7 +363,7 @@ canvas {
   overflow: auto;
 }
 
-.header-left h1 {
+.header-left .logo {
   color: #32b9cd;
 }
 

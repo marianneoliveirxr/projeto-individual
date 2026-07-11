@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Meta</title>
+    <link rel="stylesheet" href="../css/formulario.css">
+  </head>
+  <body>
+    <div class="login">
+      <div class="container">
+        <div class="cabecalho">
+            <h4>REGISTRO SEMANAL</h4>
+            <p>Atualize seu progresso semanal</p>
+          </div>
+
+        <div class="card-login">
+        
+          <div class="formulario">
+            <div class="campo">
+              <label>PESO ATUAL (KG)</label>
+              <input type="number" id="ipt_peso" placeholder="Ex: 62.5" />
+              <div class="erro" id="erroPeso"></div>
+            </div>
+
+            <div class="campo">
+              <label>ALTURA ATUAL (CM)</label>
+              <input type="number" id="ipt_altura" placeholder="Ex: 165" />
+              <div class="erro" id="erroAltura"></div>
+            </div>
+
+            <div class="campo">
+              <label>META DE PESO</label>
+              <input type="text" placeholder="Ex: 50kg" id="ipt_meta" />
+              <div class="erro" id="erroMeta"></div>
+            </div>
+          </div>
+
+          <button onclick="atualizar()" class="botao">ATUALIZAR</button>
+        </div>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
