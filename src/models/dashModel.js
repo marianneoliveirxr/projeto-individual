@@ -41,11 +41,20 @@ function buscarTotaldeRegistros(id_usuario) {
   var instrucaoSql = `
   SELECT COUNT(*) AS totalRegistros
   FROM VW_dashboard
-  WHERE fkUsuario = 3;`;
+  WHERE fkUsuario = ${id_usuario};`;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
+function buscarIMCAtual(id_usuario){
+  var instrucaoSql = `
+  SELECT
+    ROUND(peso / POWER(altura / 100, 2), 1) AS imc
+  FROM progresso
+  WHERE fkUsuario = ${id_usuario}
+  ORDER BY dtRegistro DESC
+  LIMIT 1;`
+}
 module.exports = {
   buscarGraficoMeta,
   buscarGraficoIMC,

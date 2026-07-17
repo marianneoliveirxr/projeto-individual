@@ -7,7 +7,6 @@
     <title>FitMatch | Dashboards</title>
     <link rel="stylesheet" href="./../css/dashboards.css" />
     <script src="../js/sessao.js"></script>
-
   </head>
   <body onload="carregarDashboard()">
     <div class="janela">
@@ -59,16 +58,16 @@
 
           <div class="card-kpi">
             <div class="kpi-header">
-              <span>VARIAÇÃO DE PESO</span>
+              <span>META DE PESO</span>
             </div>
 
             <div class="kpi-value">
-              <span id="kpi_variacaoPeso"></span>
+              <span id="kpi_meta"></span>
               <small>kg</small>
             </div>
 
             <div class="kpi-footer">
-              <span>Desde o primeiro registro</span>
+              <span id="texto_meta"></span>
             </div>
           </div>
 
@@ -114,22 +113,24 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  function carregarDashboard(){
+  function carregarDashboard() {
     carregarGraficos();
     carregarDadosKPIs();
   }
 
+  function carregarDadosKPIs() {
+    // NESSA FUNÇÃO ESTOU CARREGANDO SOMENTE A PRIMEIRA KPI
 
-  function carregarDadosKPIs(){
+    // KPI DE TOTAL DE REGISTROS
     fetch(`/dash/buscarTotaldeRegistros/${sessionStorage.ID_USUARIO}`)
-      .then(function (resposta){
+      .then(function (resposta) {
         return resposta.json();
       })
-      .then(function (dados){
+      .then(function (dados) {
         console.log(dados);
 
         kpi_totalRegistros.innerText = dados[0].totalRegistros;
-      })
+      });
   }
 
   function carregarGraficos() {
@@ -171,7 +172,7 @@
         });
       });
 
-      fetch(`/dash/buscarGraficoMeta/${sessionStorage.ID_USUARIO}`)
+    fetch(`/dash/buscarGraficoMeta/${sessionStorage.ID_USUARIO}`)
       .then(function (resposta) {
         return resposta.json();
       })
@@ -182,6 +183,21 @@
         let pesoAtual = dados[0].pesoAtual;
         let pesoMeta = dados[0].pesoMeta;
 
+        // KPI DA META DE PESO
+        if (pesoAtual > pesoMeta) {
+          kpi_meta.innerHTML = `Faltam ${pesoAtual - pesoMeta}`;
+          texto_meta.innerHTML = "Continue firme!";
+        } 
+        else if (pesoAtual == pesoMeta) {
+          kpi_meta.innerHTML = "Meta atingida!";
+          texto_meta.innerHTML = "Parabéns!";
+        } 
+        else {
+          kpi_meta.innerHTML = `Faltam ${pesoMeta - pesoAtual}`;
+          texto_meta.innerHTML = "Excelente resultado!";
+        }
+
+        // GRÁFICO DA META DE PESO
         const graficoIMC = document.getElementById("graficoMeta");
 
         new Chart(graficoIMC, {
@@ -199,6 +215,5 @@
           },
         });
       });
-
   }
 </script>
