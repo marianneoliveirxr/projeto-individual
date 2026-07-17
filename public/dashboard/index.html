@@ -73,15 +73,15 @@
 
           <div class="card-kpi">
             <div class="kpi-header">
-              <span>STATUS DO IMC</span>
+              <span>SEU IMC ATUAL</span>
             </div>
 
             <div class="kpi-value">
-              <span id="kpi_statusIMC"></span>
+              <span id="kpi_imc_valor"></span>
             </div>
 
             <div class="kpi-footer">
-              <span id="textoStatus"></span>
+              <span id="texto_imc"></span>
             </div>
           </div>
         </div>
@@ -119,8 +119,6 @@
   }
 
   function carregarDadosKPIs() {
-    // NESSA FUNÇÃO ESTOU CARREGANDO SOMENTE A PRIMEIRA KPI
-
     // KPI DE TOTAL DE REGISTROS
     fetch(`/dash/buscarTotaldeRegistros/${sessionStorage.ID_USUARIO}`)
       .then(function (resposta) {
@@ -130,6 +128,28 @@
         console.log(dados);
 
         kpi_totalRegistros.innerText = dados[0].totalRegistros;
+      });
+
+    //KPI IMC ATUAL
+    fetch(`/dash/buscarIMCAtual/${sessionStorage.ID_USUARIO}`)
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        console.log(dados);
+
+        let imc = dados[0].imc
+        kpi_imc_valor.innerText = imc;
+
+        if (imc < 18.5) {
+          texto_imc.innerHTML = `Abaixo do Peso - Foque em ganho de massa muscular`;
+        } else if (imc < 24.9) {
+          texto_imc.innerHTML = `Peso Ideal - Continue assim!`;
+        } else if (imc < 29.9) {
+          texto_imc.innerHTML = `Sobrepeso — continue focada no treino!`;
+        } else if (imc > 29.9) {
+          texto_imc.innerHTML = `Obesidade — continue focada no treino!`;
+        }
       });
   }
 
@@ -187,12 +207,10 @@
         if (pesoAtual > pesoMeta) {
           kpi_meta.innerHTML = `Faltam ${pesoAtual - pesoMeta}`;
           texto_meta.innerHTML = "Continue firme!";
-        } 
-        else if (pesoAtual == pesoMeta) {
+        } else if (pesoAtual == pesoMeta) {
           kpi_meta.innerHTML = "Meta atingida!";
           texto_meta.innerHTML = "Parabéns!";
-        } 
-        else {
+        } else {
           kpi_meta.innerHTML = `Faltam ${pesoMeta - pesoAtual}`;
           texto_meta.innerHTML = "Excelente resultado!";
         }

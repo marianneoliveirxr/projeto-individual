@@ -54,10 +54,15 @@ function buscarIMCAtual(id_usuario){
   WHERE fkUsuario = ${id_usuario}
   ORDER BY dtRegistro DESC
   LIMIT 1;`
+  console.log("Executando a instrução SQL do IMC ATUAL: \n" + instrucaoSql);
+
+  return database.executar(instrucaoSql);
+
 }
 module.exports = {
   buscarGraficoMeta,
   buscarGraficoIMC,
   atualizarPeso,
   buscarTotaldeRegistros,
+  buscarIMCAtual
 };

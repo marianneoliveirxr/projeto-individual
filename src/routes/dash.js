@@ -19,4 +19,8 @@ router.get("/buscarTotaldeRegistros/:id_usuario", function(req,res){
     dashController.buscarTotaldeRegistros(req,res);
 });
 
+router.get("/buscarIMCAtual/:id_usuario", function (req, res){
+    dashController.buscarIMCAtual(req,res);
+});
+
 module.exports = router;
