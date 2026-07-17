@@ -18,7 +18,7 @@ body {
 }
 
 .navbar-lateral {
-  width: 260px;
+  width: 290px;
   background-color: #0a0e17;
   border-right: 1px solid #1b2130;
   padding: 30px 20px;
@@ -62,6 +62,7 @@ body {
   font-weight: 600;
   font-size: 16px;
 }
+
 
 .btn-logout {
   margin-top: auto;
