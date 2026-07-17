@@ -2,8 +2,7 @@ var treinosModel = require("../models/treinosModel");
 
 function buscarTreinos(req, res){
     var id_usuario = req.params.id_usuario;
-
-
+    
     if(id_usuario == undefined){
         res.status(400).send("id_usuario undefined");
     }
