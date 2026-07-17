@@ -7,4 +7,12 @@ router.post("/atualizarPeso", function (req, res) {
     dashController.atualizarPeso(req, res);
 });
 
+router.get("/buscarGraficoIMC/:id_usuario", function(req,res){
+    dashController.buscarGraficoIMC(req,res);
+});
+
+router.get("/buscarGraficoMeta/:id_usuario", function(req,res){
+    dashController.buscarGraficoMeta(req,res);
+});
+
 module.exports = router;

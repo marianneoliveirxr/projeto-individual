@@ -8,29 +8,24 @@
     <link rel="stylesheet" href="./../css/dashboards.css" />
     <script src="../js/sessao.js"></script>
 
-    <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  <body>
+  <body onload="carregarDashboard()">
     <div class="janela">
       <div class="navbar-lateral">
         <div class="logo">
-              <img src="../assets/imgs/fitmatch.png" alt="FitMatch Logo" />
-            </div>
+          <img src="../assets/imgs/fitmatch.png" alt="FitMatch Logo" />
+        </div>
 
         <div class="hello">
           <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
         <div class="btn-nav">
-          <a class="bt-nav-select" href="./index.html">
-            Dashboard
-          </a>
+          <a class="bt-nav-select" href="./index.html"> Dashboard </a>
         </div>
 
         <div class="btn-nav">
-          <a href="./treinos.html">
-            Meus Treinos</a>
+          <a href="./treinos.html"> Meus Treinos</a>
         </div>
 
         <div class="btn-logout" onclick="limparSessao()">
@@ -96,10 +91,10 @@
           <div class="chart-box">
             <div class="chart-header">
               <span>EVOLUÇÃO</span>
-              <h3>Peso ao longo do tempo</h3>
+              <h3>IMC ao longo do tempo</h3>
             </div>
 
-            <canvas id="graficoPeso"></canvas>
+            <canvas id="graficoIMC"></canvas>
           </div>
 
           <div class="chart-box">
@@ -115,36 +110,81 @@
     </div>
   </body>
 </html>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  const graficoPeso = document.getElementById("graficoPeso");
+  function carregarDashboard(){
+    carregarGraficos();
+  }
 
-    new Chart(graficoPeso, {
-        type: "line",
-        data: {
+  function carregarGraficos() {
+    fetch(`/dash/buscarGraficoIMC/${sessionStorage.ID_USUARIO}`)
+      .then(function (resposta) {
+        return resposta.json();
+      })
+
+      .then(function (dados) {
+        console.log(dados);
+
+        let labels = [];
+        let dadosIMC = [];
+
+        for (let i = 0; i < dados.length; i++) {
+          labels.push(dados[i].dtRegistro);
+          dadosIMC.push(dados[i].imc);
+
+          console.log(labels);
+          console.log(dadosIMC);
+        }
+
+        const graficoIMC = document.getElementById("graficoIMC");
+
+        new Chart(graficoIMC, {
+          type: "line",
+
+          data: {
             labels: labels,
-            datasets: [{
-                label: "Peso",
-                data: dadosPeso,
+            datasets: [
+              {
+                label: "IMC",
+                data: dadosIMC,
                 borderColor: "#00BFFF",
-                backgroundColor: "#00BFFF"
-            }]
-        }
-    });
+                backgroundColor: "#00BFFF",
+              },
+            ],
+          },
+        });
+      });
 
-    const graficoMeta = document.getElementById("graficoMeta");
+      fetch(`/dash/buscarGraficoMeta/${sessionStorage.ID_USUARIO}`)
+      .then(function (resposta) {
+        return resposta.json();
+      })
 
-    new Chart(graficoMeta, {
-        type: "bar",
-        data: {
-            labels: ["Peso Atual", "Meta"],
-            datasets: [{
-                label: "Peso",
-                data: [pesoAtual, pesoMeta]
-            }]
-        }
-    });
+      .then(function (dados) {
+        console.log(dados);
 
+        let pesoAtual = dados[0].pesoAtual;
+        let pesoMeta = dados[0].pesoMeta;
+
+        const graficoIMC = document.getElementById("graficoMeta");
+
+        new Chart(graficoIMC, {
+          type: "bar",
+
+          data: {
+            labels: ["Peso Atual", "Meta de Peso"],
+            datasets: [
+              {
+                label: "Peso(kg)",
+                data: [pesoAtual, pesoMeta],
+                backgroundColor: ["#00BFFF", "#ffc107"],
+              },
+            ],
+          },
+        });
+      });
+
+  }
 </script>
