@@ -14,7 +14,9 @@
   <body>
     <div class="janela">
       <div class="navbar-lateral">
-        <h1>FitMatch</h1>
+        <div class="logo">
+              <img src="../assets/imgs/fitmatch.png" alt="FitMatch Logo" />
+            </div>
 
         <div class="hello">
           <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -22,12 +24,13 @@
 
         <div class="btn-nav">
           <a class="bt-nav-select" href="./index.html">
-            <h3>Dashboard</h3>
+            Dashboard
           </a>
         </div>
 
         <div class="btn-nav">
-          <a href="./treinos.html">Meus Treinos</a>
+          <a href="./treinos.html">
+            Meus Treinos</a>
         </div>
 
         <div class="btn-logout" onclick="limparSessao()">
@@ -115,4 +118,33 @@
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+  const graficoPeso = document.getElementById("graficoPeso");
+
+    new Chart(graficoPeso, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Peso",
+                data: dadosPeso,
+                borderColor: "#00BFFF",
+                backgroundColor: "#00BFFF"
+            }]
+        }
+    });
+
+    const graficoMeta = document.getElementById("graficoMeta");
+
+    new Chart(graficoMeta, {
+        type: "bar",
+        data: {
+            labels: ["Peso Atual", "Meta"],
+            datasets: [{
+                label: "Peso",
+                data: [pesoAtual, pesoMeta]
+            }]
+        }
+    });
+
 </script>

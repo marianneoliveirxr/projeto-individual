@@ -5,29 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FitMatch | Dashboards</title>
-    <link rel="stylesheet" href="./../css/dashboards.css" />
+    <link rel="stylesheet" href="./../css/treinos.css" />
     <script src="../js/sessao.js"></script>
-
-    <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="janela">
       <div class="navbar-lateral">
-        <h1>FitMatch</h1>
+        <div class="logo">
+              <img src="../assets/imgs/fitmatch.png" alt="FitMatch Logo" />
+            </div>
+
 
         <div class="hello">
           <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
         <div class="btn-nav">
-          <a class="bt-nav-select" href="./index.html">
-            <h3>Dashboard</h3>
+          <a href="./index.html">
+            Dashboard
           </a>
         </div>
 
         <div class="btn-nav">
-          <a href="./treinos.html">Meus Treinos</a>
+          <a class="bt-nav-select" href="./treinos.html">Meus Treinos</a>
         </div>
 
         <div class="btn-logout" onclick="limparSessao()">
@@ -36,76 +36,91 @@
       </div>
 
       <div class="dash">
-        <div class="welcome-header">
-          <h2>Veja seu progresso e continue evoluindo.</h2>
+        <div class="titulo-pagina">
+        <h1>Meus Treinos</h1>
+        <p>Seu plano personalizado — Semana atual</p>
+      </div>
 
-          <button onclick="window.location.href = 'registro.html'">
-            Registrar Peso
-          </button>
-        </div>
+      <div class="cartao-treino">
+        <div class="cabecalho-treino" onclick="abrirTreino('treinoA')">
+          <div class="treino-esquerda">
+            <div class="letra-treino">A</div>
 
-        <div class="kpis-container">
-          <div class="card-kpi">
-            <div class="kpi-header">
-              <span>TOTAL DE REGISTROS</span>
-            </div>
-
-            <div class="kpi-value">
-              <span id="kpi_totalRegistros"></span>
-            </div>
-
-            <div class="kpi-footer">
-              <span>Pesagens cadastradas</span>
-            </div>
-          </div>
-
-          <div class="card-kpi">
-            <div class="kpi-header">
-              <span>VARIAÇÃO DE PESO</span>
-            </div>
-
-            <div class="kpi-value">
-              <span id="kpi_variacaoPeso"></span>
-              <small>kg</small>
-            </div>
-
-            <div class="kpi-footer">
-              <span>Desde o primeiro registro</span>
-            </div>
-          </div>
-
-          <div class="card-kpi">
-            <div class="kpi-header">
-              <span>STATUS DO IMC</span>
-            </div>
-
-            <div class="kpi-value">
-              <span id="kpi_statusIMC"></span>
-            </div>
-
-            <div class="kpi-footer">
-              <span id="textoStatus"></span>
+            <div class="info-treino">
+              <h2 id="tituloA">Treino A</h2>
+              <p id="qtdA">0 exercícios</p>
             </div>
           </div>
         </div>
-        
-        <div class="charts-container">
-          <div class="chart-box">
-            <div class="chart-header">
-              <span>EVOLUÇÃO</span>
-              <h3>Peso ao longo do tempo</h3>
-            </div>
 
-            <canvas id="graficoPeso"></canvas>
+        <div class="conteudo-treino" id="treinoA">
+          <div class="cabecalho-tabela">
+            <span class="titulo-exercicio">EXERCÍCIO</span>
+            <span>SÉRIES</span>
+            <span>REPETIÇÕES</span>
           </div>
 
-          <div class="chart-box">
-            <div class="chart-header">
-              <span>COMPARAÇÃO</span>
-              <h3>Peso Atual x Meta</h3>
-            </div>
+          <div id="listaTreinoA"></div>
 
-            <canvas id="graficoMeta"></canvas>
+          <div class="cardio">
+            <p id="cardioA"></p>
+            <span>30 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cartao-treino">
+        <div class="cabecalho-treino" onclick="abrirTreino('treinoB')">
+          <div class="treino-esquerda">
+            <div class="letra-treino">B</div>
+
+            <div class="info-treino">
+              <h2 id="tituloB">Treino B</h2>
+              <p id="qtdB">0 exercícios</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="conteudo-treino" id="treinoB">
+          <div class="cabecalho-tabela">
+            <span class="titulo-exercicio">EXERCÍCIO</span>
+            <span>SÉRIES</span>
+            <span>REPETIÇÕES</span>
+          </div>
+
+          <div id="listaTreinoB"></div>
+
+          <div class="cardio">
+            <p id="cardioB"></p>
+            <span>30 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cartao-treino">
+        <div class="cabecalho-treino" onclick="abrirTreino('treinoC')">
+          <div class="treino-esquerda">
+            <div class="letra-treino">C</div>
+
+            <div class="info-treino">
+              <h2 id="tituloC">Treino C</h2>
+              <p id="qtdC">0 exercícios</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="conteudo-treino" id="treinoC">
+          <div class="cabecalho-tabela">
+            <span class="titulo-exercicio">EXERCÍCIO</span>
+            <span>SÉRIES</span>
+            <span>REPETIÇÕES</span>
+          </div>
+
+          <div id="listaTreinoC"></div>
+
+          <div class="cardio">
+            <p id="cardioC"></p>
+            <span>30 min</span>
           </div>
         </div>
       </div>
@@ -115,4 +130,80 @@
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    buscarTreinos();
+
+  function buscarTreinos() {
+    console.log("ID USUARIO:", sessionStorage.ID_USUARIO);
+    
+    fetch(`/treinos/buscarTreinos/${sessionStorage.ID_USUARIO}`)
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        console.log(dados);
+
+        let treinoA = [];
+        let treinoB = [];
+        let treinoC = [];
+
+        for (let i = 0; i < dados.length; i++) {
+          if (dados[i].divisao == "A") {
+            treinoA.push(dados[i]);
+          } else if (dados[i].divisao == "B") {
+            treinoB.push(dados[i]);
+          } else if (dados[i].divisao == "C") {
+            treinoC.push(dados[i]);
+          }
+        }
+
+        preencherTreino("A", treinoA);
+        preencherTreino("B", treinoB);
+        preencherTreino("C", treinoC);
+      })
+
+      .catch(function (erro) {
+        console.log("Erro:", erro);
+      });
+  }
+
+  function preencherTreino(letra, treino) {
+    if (treino.length == 0) {
+      return;
+    }
+
+    document.getElementById(`titulo${letra}`).innerHTML =
+      `Treino ${letra} — ${treino[0].musculos}`;
+
+    document.getElementById(`qtd${letra}`).innerHTML =
+      `${treino.length} exercícios`;
+
+    document.getElementById(`cardio${letra}`).innerHTML =
+      `Cardio: ${treino[0].cardio}`;
+
+    let htmlExercicios = "";
+
+    for (let i = 0; i < treino.length; i++) {
+      htmlExercicios += `
+      <div class="linha-exercicio">
+        <p class="col-exercicio">${treino[i].exercicio}</p>
+        <span>${treino[i].series}</span>
+        <span>${treino[i].repeticoes}</span>
+      </div>
+    `;
+    }
+
+    document.getElementById(`listaTreino${letra}`).innerHTML = htmlExercicios;
+  }
+
+  function abrirTreino(id) {
+    let treino = document.getElementById(id);
+
+    if (treino.style.display == "block") {
+      treino.style.display = "none";
+    } else {
+      treino.style.display = "block";
+    }
+  }
+  
 </script>

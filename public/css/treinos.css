@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #05070d;
+  color: #ffffff;
+}
+
+.janela {
+  display: flex;
+  min-height: 100vh;
+}
+
+.navbar-lateral {
+  width: 260px;
+  background-color: #0a0e17;
+  border-right: 1px solid #1b2130;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo img{
+    width: 180px;
+}
+
+.hello h3 {
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 25px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.hello span {
+  color: #29b6f6;
+  font-weight: 700;
+}
+
+.btn-nav a{
+  display: block;
+  color: #29b6f6;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.bt-nav-select {
+  background-color: #131a29;
+  border: 1px solid #29b6f6;
+  border-radius: 8px;
+  display: block;
+  color: #29b6f6;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.btn-logout {
+  margin-top: auto;
+  background-color: #29b6f6;
+  color: #05070d;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.dash {
+    flex: 1;
+    padding: 30px;
+}
+
+.titulo-pagina h1 {
+    color: white;
+    font-size: 38px;
+}
+
+.titulo-pagina p {
+    color: #64748b;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.cartao-treino {
+    background-color: #071120;
+    border: 1px solid #123252;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cabecalho-treino {
+    background-color: #0f2238;
+    padding: 25px;
+    cursor: pointer;
+}
+
+.treino-esquerda {
+    display: flex;
+    align-items: center;
+}
+
+.letra-treino {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 20px;
+    background-color: #123252;
+    color: #29b6f6;
+}
+
+.info-treino h2 {
+    color: white;
+}
+
+.info-treino p {
+    color: #64748b;
+}
+
+.conteudo-treino {
+    display: none;
+}
+
+.cabecalho-tabela {
+    display: flex;
+    padding: 20px 30px;
+    border-bottom: 1px solid #132033;
+}
+
+.cabecalho-tabela span {
+    width: 20%;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.cabecalho-tabela .titulo-exercicio {
+    width: 60%;
+    text-align: left;
+}
+
+.linha-exercicio {
+    display: flex;
+    padding: 22px 30px;
+    border-bottom: 1px solid #132033;
+}
+
+.linha-exercicio p {
+    width: 60%;
+    color: white;
+}
+
+.linha-exercicio span {
+    width: 20%;
+    text-align: center;
+    color: #38bdf8;
+}
+
+.cardio {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: #0b1627;
+}
+
+.cardio p {
+    color: white;
+}
+
+.cardio span {
+    color: #38bdf8;
+}
