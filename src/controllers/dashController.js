@@ -72,6 +72,8 @@ function atualizarPeso(req, res) {
   }
 }
 
+
+
 function buscarTotaldeRegistros(req,res){
     var id_usuario = req.params.id_usuario;
 
