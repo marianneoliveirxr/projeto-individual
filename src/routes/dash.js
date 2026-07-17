@@ -15,4 +15,8 @@ router.get("/buscarGraficoMeta/:id_usuario", function(req,res){
     dashController.buscarGraficoMeta(req,res);
 });
 
+router.get("/buscarTotaldeRegistros/:id_usuario", function(req,res){
+    dashController.buscarTotaldeRegistros(req,res);
+});
+
 module.exports = router;

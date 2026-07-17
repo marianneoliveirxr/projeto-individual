@@ -116,6 +116,20 @@
 
   function carregarDashboard(){
     carregarGraficos();
+    carregarDadosKPIs();
+  }
+
+
+  function carregarDadosKPIs(){
+    fetch(`/dash/buscarTotaldeRegistros/${sessionStorage.ID_USUARIO}`)
+      .then(function (resposta){
+        return resposta.json();
+      })
+      .then(function (dados){
+        console.log(dados);
+
+        kpi_totalRegistros.innerText = dados[0].totalRegistros;
+      })
   }
 
   function carregarGraficos() {

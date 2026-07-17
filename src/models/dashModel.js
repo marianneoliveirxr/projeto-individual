@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarGraficoIMC(id_usuario){
+function buscarGraficoIMC(id_usuario) {
   var instrucaoSql = `
     SELECT 
     ROUND(peso / POWER(altura / 100, 2), 1) AS imc,
@@ -13,7 +13,7 @@ function buscarGraficoIMC(id_usuario){
   return database.executar(instrucaoSql);
 }
 
-function buscarGraficoMeta(id_usuario){
+function buscarGraficoMeta(id_usuario) {
   var instrucaoSql = `
   SELECT
     pg.peso AS pesoAtual,
@@ -37,8 +37,18 @@ function atualizarPeso(id_usuario, peso, altura) {
   return database.executar(instrucaoSql);
 }
 
+function buscarTotaldeRegistros(id_usuario) {
+  var instrucaoSql = `
+  SELECT COUNT(*) AS totalRegistros
+  FROM VW_dashboard
+  WHERE fkUsuario = 3;`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarGraficoMeta,
-  buscarGraficoIMC,  
-  atualizarPeso
-}
+  buscarGraficoIMC,
+  atualizarPeso,
+  buscarTotaldeRegistros,
+};

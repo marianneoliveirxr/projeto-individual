@@ -72,8 +72,26 @@ function atualizarPeso(req, res) {
   }
 }
 
+function buscarTotaldeRegistros(req,res){
+    var id_usuario = req.params.id_usuario;
+
+    dashModel
+    .buscarTotaldeRegistros(id_usuario)
+
+    .then(function (resultado) {
+      res.json(resultado);
+    })
+
+    .catch(function (erro) {
+      console.log(erro);
+
+      res.status(500).send(erro.sqlMessage);
+    });
+}
+
 module.exports = {
 buscarGraficoMeta,
   buscarGraficoIMC,
   atualizarPeso,
+  buscarTotaldeRegistros
 };
