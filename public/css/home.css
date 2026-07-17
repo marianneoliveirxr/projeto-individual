@@ -179,7 +179,7 @@ li{
 }
 
 .box{
-    background: #0f2238;
+    background: #0b1220;
 
     width: 360px;
 
@@ -246,7 +246,7 @@ li{
 
 .caixa-imc {
     margin-top: 40px;
-    background-color: #0f2238;
+    background-color: #0b1220;
     border-radius: 12px;
     padding: 50px 90px;
     border: 1px solid #38bdf833;
@@ -328,7 +328,7 @@ input[type="range"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #38bdf80d;
+    background-color: #0b1220;
     border: 1px solid #36b5ec0d;
     border-radius: 12px;
 
