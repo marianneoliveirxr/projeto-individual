@@ -10,6 +10,8 @@ function buscarGraficoIMC(id_usuario) {
     ORDER BY dtRegistro ASC;
   `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
+
+  //Devolve uma promise
   return database.executar(instrucaoSql);
 }
 

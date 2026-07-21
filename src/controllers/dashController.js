@@ -3,9 +3,11 @@ var dashModel = require("../models/dashModel");
 function buscarGraficoIMC(req, res) {
   var id_usuario = req.params.id_usuario;
 
+  //Solicita que a model busque os dados com aquele id_usuario
   dashModel
     .buscarGraficoIMC(id_usuario)
 
+    // Quando termina a consulta da model, o resultado é enviado em formato JSON
     .then(function (resultado) {
       res.json(resultado);
     })

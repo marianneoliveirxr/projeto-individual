@@ -15,6 +15,7 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
+//Faz uma requisição que importa todas as rotas desse endereço após o require
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var perfilRouter = require("./src/routes/perfil");
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
+//Toda requisição que começar com o "/" vai importar as rotas da variável declarada
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/perfil", perfilRouter);
